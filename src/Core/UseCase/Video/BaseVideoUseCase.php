@@ -62,7 +62,7 @@ abstract class BaseVideoUseCase
         }
     }
 
-    protected function storageFile(string $path, ?array $media = null): null|string
+    protected function storageFile(string $path, array $media = null): ?string
     {
         if ($media) {
             return $this->storage->store(
@@ -96,7 +96,7 @@ abstract class BaseVideoUseCase
         );
     }
 
-    protected function validateIds(array $ids, $repository, string $singularLabel, ?string $pluralLabel = null)
+    protected function validateIds(array $ids, $repository, string $singularLabel, string $pluralLabel = null)
     {
         $idsDb = $repository->getIdsListIds($ids);
 

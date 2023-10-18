@@ -38,4 +38,3 @@ return new class extends Migration
         Schema::dropIfExists('medias_video');
     }
 };
-

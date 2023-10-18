@@ -17,11 +17,11 @@ class CreateVideoUseCaseTest extends BaseVideoUseCase
         array $categories = [],
         array $genres = [],
         array $castMembers = [],
-        ?array $videoFile = null,
-        ?array $trailerFile = null,
-        ?array $bannerFile = null,
-        ?array $thumbFile = null,
-        ?array $thumbHalf = null,
+        array $videoFile = null,
+        array $trailerFile = null,
+        array $bannerFile = null,
+        array $thumbFile = null,
+        array $thumbHalf = null,
     ): object {
         return new CreateInputVideoDTO(
             title: 'test',

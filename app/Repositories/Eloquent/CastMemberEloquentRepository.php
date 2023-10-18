@@ -34,7 +34,7 @@ class CastMemberEloquentRepository implements CastMemberRepositoryInterface
 
     public function findById(string $castMemberId): CastMember
     {
-        if (!$dataDb = $this->model->find($castMemberId)) {
+        if (! $dataDb = $this->model->find($castMemberId)) {
             throw new NotFoundException("Cast Member {$castMemberId} Not Found");
         }
 
@@ -53,8 +53,9 @@ class CastMemberEloquentRepository implements CastMemberRepositoryInterface
     {
         $dataDb = $this->model
             ->where(function ($query) use ($filter) {
-                if ($filter)
+                if ($filter) {
                     $query->where('name', 'LIKE', "%{$filter}%");
+                }
             })
             ->orderBy('name', $order)
             ->get();
@@ -76,8 +77,9 @@ class CastMemberEloquentRepository implements CastMemberRepositoryInterface
 
     public function update(CastMember $castMember): CastMember
     {
-        if (!$dataDb = $this->model->find($castMember->id()))
+        if (! $dataDb = $this->model->find($castMember->id())) {
             throw new NotFoundException("Cast Member {$castMember->id()} Not Found");
+        }
 
         $dataDb->update([
             'name' => $castMember->name,
@@ -91,8 +93,9 @@ class CastMemberEloquentRepository implements CastMemberRepositoryInterface
 
     public function delete(string $castMemberId): bool
     {
-        if (!$dataDb = $this->model->find($castMemberId))
+        if (! $dataDb = $this->model->find($castMemberId)) {
             throw new NotFoundException("Cast Member {$castMemberId} Not Found");
+        }
 
         return $dataDb->delete();
     }

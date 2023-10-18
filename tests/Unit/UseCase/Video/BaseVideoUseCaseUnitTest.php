@@ -28,11 +28,11 @@ abstract class BaseVideoUseCaseUnitTest extends TestCase
         array $categoriesIds = [],
         array $genresIds = [],
         array $castMembersIds = [],
-        ?array $videoFile = null,
-        ?array $trailerFile = null,
-        ?array $thumbFile = null,
-        ?array $thumbHalf = null,
-        ?array $bannerFile = null,
+        array $videoFile = null,
+        array $trailerFile = null,
+        array $thumbFile = null,
+        array $thumbHalf = null,
+        array $bannerFile = null,
     );
 
     protected function createUseCase(
