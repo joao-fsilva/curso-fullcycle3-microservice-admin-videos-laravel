@@ -13,6 +13,8 @@ services:
         depends_on:
             - db
             - redis
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
 
     nginx:
         build: .docker/nginx
